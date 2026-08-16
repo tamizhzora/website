@@ -12,7 +12,7 @@
   "kv_namespaces": [
     {
       "binding": "VIDEOS",
-      "id": "REPLACE_WITH_YOUR_KV_NAMESPACE_ID",
+      "id": "5d1cc3f90e2f420daabe460ea5836fae",
       "preview_id": "REPLACE_WITH_YOUR_PREVIEW_KV_NAMESPACE_ID"
     }
   ],
