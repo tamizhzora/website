@@ -1,7 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "movie-streaming-app",
-  "main": "index.js",
+  "name": "tamizhzora",
+  "main": "src/index.js",
   "compatibility_date": "2026-08-16",
   // KV namespace used for everything: users, videos, ads, gifts, friends,
   // notifications, coin history, admin audit log, settings/branding, etc.
