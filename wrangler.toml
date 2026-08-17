@@ -11,4 +11,4 @@ id = "723c6e44a6d9400cb5bb7b925116e61e"
 # Non-secret vars can go here. Secrets (ADMIN_PASSWORD, LINK_SECRET) should
 # NOT be put here — set them via `wrangler secret put` or the dashboard instead.
 [vars]
-DRIVE_PROXY_BASE = "https://my-drive-proxy.cliqzora.workers.dev/"
+DRIVE_PROXY_BASE = "https://my-video-site.cliqzora.workers.dev/drive-proxy"
