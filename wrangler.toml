@@ -1,0 +1,46 @@
+name = "my-video-site"
+main = "index.js"
+compatibility_date = "2026-08-16"
+
+# KV namespace used for videos, users, series, etc.
+# UNCHANGED — this stays in place and stays live through the entire migration.
+# Per the migration plan, it is only removed in the final step, after D1 has
+# been verified in production. The app still reads/writes it exclusively
+# until STEP 16/17 wire up D1 reads/writes.
+[[kv_namespaces]]
+binding = "VIDEOS"
+id = "723c6e44a6d9400cb5bb7b925116e61e"
+
+# ── D1 database (NEW — added in STEP 4) ────────────────────────────────────
+# Not yet used by the application. STEP 16/17 will start reading/writing
+# through this binding; until then the app's behavior is unchanged.
+#
+# ACTION REQUIRED before this binding will work:
+#   1. Run:  npx wrangler d1 create my-video-site-db
+#   2. Copy the "database_id" it prints into database_id below.
+#   3. Apply the schema:
+#        npx wrangler d1 execute my-video-site-db --file=migrations/0001_initial_schema.sql --remote
+#      (add --local instead of --remote to test against a local simulated
+#      D1 database first, without touching anything live)
+[[d1_databases]]
+binding = "DB"
+database_name = "my-video-site-db"
+database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+
+# ── R2 bucket (NEW — added in STEP 4) ───────────────────────────────────────
+# Not yet used by the application. Included now so the binding exists ahead
+# of time; whether/how it gets populated depends on the still-open media-
+# migration scope question from STEP 1 (ambiguity #1) — this binding alone
+# does not commit us to either option.
+#
+# ACTION REQUIRED before this binding will work:
+#   1. Run:  npx wrangler r2 bucket create my-video-site-media
+#   2. The bucket_name below must match exactly what you created.
+[[r2_buckets]]
+binding = "MEDIA"
+bucket_name = "my-video-site-media"
+
+# Non-secret vars can go here. Secrets (ADMIN_PASSWORD, LINK_SECRET) should
+# NOT be put here — set them via `wrangler secret put` or the dashboard instead.
+[vars]
+DRIVE_PROXY_BASE = "https://my-drive-proxy.cliqzora.workers.dev"
