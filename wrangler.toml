@@ -25,7 +25,7 @@ id = "723c6e44a6d9400cb5bb7b925116e61e"
 [[d1_databases]]
 binding = "DB"
 database_name = "my-video-site-db"
-database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+database_id = "a2fb0ba5-d6e4-4e6e-bb5f-83bbaffd9cdd"
 
 # ── R2 bucket (NEW — added in STEP 4) ───────────────────────────────────────
 # Not yet used by the application. Included now so the binding exists ahead
